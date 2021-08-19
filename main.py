@@ -13,9 +13,10 @@ from time import gmtime, strftime
 import asyncio
 import datetime
 
-bot = commands.Bot(command_prefix="+")
+bot = commands.Bot(command_prefix="`")
+
 @bot.event
 async def on_ready():
     print("Bot is ready")
 
-bot.run("80671bed1e4695b4a113d54b5fcf0c2eceb9303e2733e4a84ce92bd15c7cf883")
+bot.run("ODc3NzA2ODI4MzU0NTU1OTc0.YR2iLg.f73m8XO31jvxsxZFpurIsE9Y8NQ")
