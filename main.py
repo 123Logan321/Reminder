@@ -34,6 +34,10 @@ async def help(ctx):
     await ctx.send(author, embed=embed)
 
 @bot.command(pass_context=True)
+async def date(ctx):
+   await ctx.send(str(strftime('%Y-%m-%d %H:%M:%S')))
+
+@bot.command(pass_context=True)
 async def remind(ctx, message):
     embed = discord.Embed(title="New Reminder!",description=("Hello"),color=discord.Color.dark_teal())
     await ctx.send(embed=embed)
