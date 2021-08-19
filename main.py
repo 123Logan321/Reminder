@@ -35,7 +35,7 @@ async def help(ctx):
 
 @bot.command(pass_context=True)
 async def date(ctx):
-   await ctx.send(str(strftime('%Y-%m-%d %H:%M:%S')))
+   await ctx.send(time.time())
 
 @bot.command(pass_context=True)
 async def remind(ctx, message):
