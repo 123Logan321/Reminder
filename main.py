@@ -18,4 +18,4 @@ bot = commands.Bot(command_prefix="+")
 async def on_ready():
     print("Bot is ready")
 
-bot.run("80671bed1e4695b4a113d54b5fcf0c2eceb9303e2733e4a84ce92bd15c7cf883")
+bot.run("")
