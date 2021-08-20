@@ -44,6 +44,7 @@ async def date(ctx):
 
 @bot.command(pass_context=True)
 async def remind(ctx, message, year: int, month: int, day: int, hour: int, minute: int):
+    author = message.author
     embed = discord.Embed(title=message, description=(""),
                           color=discord.Color.dark_teal())
     await asyncio.sleep(datetime.datetime.today()-datetime.datetime(year, month, day, hour, minute))
