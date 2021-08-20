@@ -45,9 +45,9 @@ async def date(ctx):
 @bot.command(pass_context=True)
 async def remind(ctx, message, year: int, month: int, day: int, hour: int, minute: int):
     author = ctx.message.author
-    embed = discord.Embed(title=message, description=('<@'+str(author.id)+'>\n'),color=discord.Color.dark_teal())
+    embed = discord.Embed(title=message, description=('You have now been reminded'),color=discord.Color.dark_teal())
     await asyncio.sleep(datetime.datetime(year, month, day, hour, minute).timestamp()-datetime.datetime.today().timestamp())
-    await ctx.send(author, embed=embed)
+    await ctx.send('<@'+str(author.id)+'>\n', embed=embed)
 
 
 bot.run("ODc3NzA2ODI4MzU0NTU1OTc0.YR2iLg.f73m8XO31jvxsxZFpurIsE9Y8NQ")
