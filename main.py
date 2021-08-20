@@ -33,7 +33,7 @@ async def on_command_error(ctx, error):
 async def help(ctx):
     author = ctx.message.author
     embed = discord.Embed(title="Help", description=(
-        "This is a Reminder Bot\nCreate reminds in the format of (24h Format):\n`remind 'name' Year Month Day Hour Minute"), color=discord.Colour.blue())
+        "This is a Reminder Bot\nCreate reminds in the format of (24h Format):\n`remind 'name' Year/Month/Day Hour:Minute"), color=discord.Colour.blue())
     await ctx.send(author, embed=embed)
 
 
@@ -43,10 +43,12 @@ async def date(ctx):
 
 
 @bot.command(pass_context=True)
-async def remind(ctx, message, year: int, month: int, day: int, hour: int, minute: int):
+async def remind(ctx, message, date, time):
     author = ctx.message.author
+    date = date.split("/")
+    time = time.split(":")
     embed = discord.Embed(title=message, description=('You have now been reminded'),color=discord.Color.dark_teal())
-    await asyncio.sleep(datetime.datetime(year, month, day, hour, minute).timestamp()-datetime.datetime.today().timestamp())
+    await asyncio.sleep(datetime.datetime(int(date[0]), int(date[1]), int(date[2]), int(time[0]), int(time[1])).timestamp()-datetime.datetime.today().timestamp())
     await ctx.send('<@'+str(author.id)+'>\n', embed=embed)
 
 
