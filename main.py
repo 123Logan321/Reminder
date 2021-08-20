@@ -16,9 +16,11 @@ import datetime
 bot = commands.Bot(command_prefix="`")
 bot.remove_command('help')
 
+
 @bot.event
 async def on_ready():
     print("Bot is ready")
+
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -26,20 +28,25 @@ async def on_command_error(ctx, error):
         return
     raise error
 
+
 @bot.command(pass_context=True)
 async def help(ctx):
     author = ctx.message.author
-    embed = discord.Embed(color=discord.Colour.blue())
-    embed.set_author(name = 'Help')
-    await ctx.send(author, embed=embed)
+    embed = discord.Embed(title="Help", description=(
+        "This is a Reminder Bot\nCreate reminds in the format of:\n`remind 'name' Year Month Day Hour Minute"), color=discord.Colour.blue())
+    await ctx.send(embed=embed)
+
 
 @bot.command(pass_context=True)
 async def date(ctx):
-   await ctx.send(time.time())
+    await ctx.send(time.time())
+
 
 @bot.command(pass_context=True)
-async def remind(ctx, message):
-    embed = discord.Embed(title="New Reminder!",description=("Hello"),color=discord.Color.dark_teal())
+async def remind(ctx, message, year: int, month: int, day: int, hour: int, minute: int):
+    embed = discord.Embed(title=message, description=(""),
+                          color=discord.Color.dark_teal())
+    await asyncio.sleep(datetime.datetime.today()-datetime.datetime(year, month, day, hour, minute))
     await ctx.send(embed=embed)
 
 bot.run("ODc3NzA2ODI4MzU0NTU1OTc0.YR2iLg.f73m8XO31jvxsxZFpurIsE9Y8NQ")
