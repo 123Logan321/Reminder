@@ -52,4 +52,4 @@ async def remind(ctx, message, date, time):
     await ctx.send('<@'+str(author.id)+'>\n', embed=embed)
 
 
-bot.run("ODc3NzA2ODI4MzU0NTU1OTc0.YR2iLg.f73m8XO31jvxsxZFpurIsE9Y8NQ")
+bot.run("updated to a new code")
